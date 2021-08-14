@@ -5,19 +5,20 @@ require('dotenv').config();
 
 const orderRoutes = require('./routes/order');
 
-const server = express();
+const app = express();
 
 
 // your app global middlewares
-server.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 // routing your http requests
-server.use('/api', orderRoutes);
+app.use('/api', orderRoutes);
 
 
 // request `Not Dound` handler
-server.use((req, res, next) => {
+app.use((req, res, next) => {
   const error = new Error('Not Found');
   error.status = 404;
   throw error;
@@ -25,11 +26,11 @@ server.use((req, res, next) => {
 
 
 // thrown erros handler
-server.use((error, req, res, next) => {
+app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({ message: error.message || 'Internal Server Error' });
 });
 
 
 // bootstrap your server
-server.listen(process.env.PORT, () => console.log('Server running on port ' + process.env.PORT));
+app.listen(process.env.PORT, () => console.log('Server running on port ' + process.env.PORT));
