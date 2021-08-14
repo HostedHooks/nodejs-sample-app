@@ -21,7 +21,6 @@ const createOrder = async (req, res, next) => {
   // you can pass in whatever data you want to send with the event
     try {
       const result = await sendWebhookMessage('order.created', data)
-      // console.log(result);
       res.status(201).json({ message: 'Order has been created successfully', result })
     } catch (error) {
       console.log(error);
@@ -52,7 +51,7 @@ const createEvent = async (req, res, next) => {
   
   // you can form the data object as you like
   const data = {
-    event_type,           // ex: 'fullfilled'
+    event_type,           // ex: 'fulfilled'
     provider_message,     // ex: 'your order may take two days on the way'
     provider_name,        // ex: 'FedEx'
     status,               // ex: 'safe'
@@ -62,7 +61,6 @@ const createEvent = async (req, res, next) => {
 
   try {
     const result = await sendWebhookMessage(`order.${event_type}`, data)
-    // console.log(result);
     res.status(201).json({ message: 'Event has been created successfully', result })
   } catch (error) {
     console.log(error);
