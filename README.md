@@ -61,7 +61,7 @@ HOSTEDHOOKS_API_KEY=...
 APP_UUID=...
 ```
 
-### Step 5. Run the server
+### Step 5. Run the app
 
 ```js
 # install dependencies
