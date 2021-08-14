@@ -151,7 +151,9 @@ In your webhook message, you can form the `data` object as you want:
 const fetch = require('node-fetch');
 
 const sendWebhookMessage = (event, data) => {
-  var url = new URL(`https://www.hostedhooks.com/api/v1/apps/${process.env.APP_UUID}/messages`);
+  var url = new URL(
+    `https://www.hostedhooks.com/api/v1/apps/${process.env.APP_UUID}/messages`
+  );
 
   // webhook message
   var messagePayload = JSON.stringify({
