@@ -34,10 +34,10 @@ In this example, we created `order.created` event that triggeres whenever a new 
 
 Here are some events you can trigger when order status changes:
 
-- `order.fulfilled` - triggered whenever a order is **fulfilled**.
-- `order.shipped` - triggered whenever a order is **shipped**.
-- `order.canceled` - triggered whenever a order is **canceled**.
-- `order.returned` - triggered whenever a order is **returned**.
+- `order.fulfilled` - triggered whenever an order is **fulfilled**.
+- `order.shipped` - triggered whenever an order is **shipped**.
+- `order.canceled` - triggered whenever an order is **canceled**.
+- `order.returned` - triggered whenever an order is **returned**.
 
 **Note:** The events being sent from your application must match the events created in your [app instance](https://docs.hostedhooks.com/developer-resources/components/apps) and they must be created first.
 
